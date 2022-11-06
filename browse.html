@@ -1,0 +1,326 @@
+<head>
+    <style>
+        :root {
+            --darkblue: #3D5A80;
+            --normalblue: #98C1D9; 
+            --lightblue: #E0FBFC;
+            --orange: #EE6C4D;
+            --lightorange: #F5A38F;
+            --gunmetal: #293241;
+        }
+        
+        h1 {
+            font-size: 100px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+    
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
+        }
+    
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        
+        #header {
+            background-color: var(--orange);
+            width: 100%;
+            height: 50px;
+        }
+    
+        #main-1 {
+            background-color: white;
+            height: calc(100% - 50px);
+            display: flex;
+            align-content: center;
+        }
+
+        #main-2 {
+            display: none;
+            background-color: white;
+            height: calc(100% - 50px);
+            align-content: center;
+        }
+
+
+        #center-content-1 {
+            width: 75%;
+            height: 100%;
+            margin: auto;
+        }
+
+        #center-content-2 {
+            max-height: fit-content;
+            width: 50%;
+            margin: auto;
+            display: flex;
+            margin-top: 30px;
+        }
+        
+        .form-header {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 30px;
+            color: var(--orange);
+            font-weight: lighter;
+        }
+        
+        #home-nav {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            width: fit-content;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .container {
+            display: inline-block;
+            width: 100%;
+            max-height: max-content;
+            margin-top: 20px;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            align-content: center;
+        }
+
+        .wrapper2 {
+            display: flex;
+            width: 100%;
+            align-content: center;
+            max-width: max-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .normal-button {
+            max-width: max-content;
+            color: white;
+            background-color: var(--orange);
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 10px;
+            cursor:pointer;
+            margin-top: 10px;
+            border-bottom: 4px solid var(--lightorange);
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .normal-button:hover {
+            background-color: white;
+            color: var(--orange);
+            transition: 0.2s;
+        }
+
+        .route {
+            width: auto;
+            height: 25%;
+            padding: 20px;
+            background-color: white;
+            display: flex;
+        }
+
+        .route-thumbnail {
+            min-width: 180px;
+            min-height: 180px;
+            background-color: var(--gunmetal);
+            border-radius: 20px;
+        }
+
+        .route-title {
+            color: var(--orange);
+            font-size: 30px;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            margin-left: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .route-description {
+            color: black;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .route-city {
+            color: gray;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .route-thumbnail-2 {
+            min-width: 360px;
+            min-height: 360px;
+            max-width: 360px;
+            max-height: 360px;
+            background-color: var(--gunmetal);
+            border-radius: 20px;
+        }
+
+        .route-title-2 {
+            color: var(--orange);
+            font-size: 30px;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            margin-left: 20px;
+        }
+
+        .route-description-2 {
+            color: black;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .route-city-2 {
+            color: gray;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .step-2 {
+            width: 100%;
+            color: black;
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 15px;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            border: 3px solid #d3d3d3;
+            margin-left: 15px;
+            margin-top: 10px;
+        }
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body onload="loadRoute()">
+    <div id="header">
+        <nav id="home-nav">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="browse.html">Browse</a>
+            <a class="nav-link" href="upload.html">Upload</a>
+        </nav>
+    </div>
+    <div id="main-1">
+        <div id="center-content-1">
+        </div>
+    </div>
+    <div id="main-2">
+        <div id="center-content-2">
+            <image class="route-thumbnail-2"></image>
+            <div id="display" class="container">
+                <h1 class="route-title-2">Title</h1>
+                <p class="route-description-2">Description</p>
+                <p class="route-city-2">City</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var tempData;
+
+        function loadRoute() {
+            $.post( "/load-route", function(data) {
+                tempData = data;
+                for (let i=0; i<data.length; i++) {
+                    const item = document.createElement("div");
+                    item.className = "route";
+
+                    const itemImage = document.createElement("image");
+                    itemImage.className = "route-thumbnail"
+
+                    const wrapDiv = document.createElement("div");
+                    wrapDiv.className = "container"
+
+                    const itemName = document.createElement("button")
+                    itemName.className = "route-title";
+                    itemName.onclick = function() {loadRoutePage(i)};
+                    itemName.innerHTML = data[i].routename;
+
+                    const itemCity = document.createElement("p")
+                    itemCity.className = "route-city";
+                    itemCity.innerHTML = data[i].routecity;
+
+                    const itemDesc = document.createElement("p")
+                    itemDesc.className = "route-description"
+                    itemDesc.innerHTML = data[i].routedescription;
+
+                    wrapDiv.append(itemName);
+                    wrapDiv.append(itemDesc);
+                    wrapDiv.append(itemCity);
+                    item.append(itemImage);
+                    item.append(wrapDiv);
+                    $("#center-content-1").append(item);
+                }
+            });
+            
+        }
+
+        function updateFocus(index) {
+            console.log(tempData[index].routename)
+            $(".route-title-2").html(tempData[index].routename);
+            $(".route-description-2").html(tempData[index].routedescription);
+            $(".route-city-2").html(tempData[index].routecity);
+
+            var steps = tempData[index].routesteps.split(", ")
+            var descs = tempData[index].stepdescriptions.split(", ")
+
+            for (let i=0; i<steps.length - 1; i++) {
+                console.log(tempData[index].steps)
+                const item = document.createElement("div");
+                item.className = "step-2";
+                
+                const stepName = document.createElement("p");
+                stepName.className = "route-description";
+                stepName.innerHTML = steps[i]
+
+                const stepInstructions = document.createElement("p");
+                stepInstructions.className = "route-city";
+                stepInstructions.innerHTML = descs[i]
+
+                item.append(stepName);
+                item.append(stepInstructions);
+                $("#display").append(item);
+            }
+        }
+
+        function loadRoutePage(index) {
+            updateFocus(index)
+            $.when($( "#main-1" ).fadeOut("fast")).done(function() {
+                $( "#main-2" ).fadeIn("fast");
+                });
+            }
+    </script>
+</body>
