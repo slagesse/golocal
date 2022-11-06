@@ -53,22 +53,23 @@
 
         #location-form {
             background-color: var(--gunmetal);
+            width: 100%;
             padding: 15px;
             border-radius: 20px;
             margin-left: auto;
             margin-right: auto;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            width: fit-content;
+            text-decoration: none;
+            margin-left: 20px;
+            border-bottom: 5px solid var(--normalblue);
         }
 
-        #location-entry {
-            color: white;
-            font-size: 30px;
-            border-bottom: 4px solid var(--lightorange);
-        }
-
-        #search-button {
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
+        #location-form:hover {
+            background-color: white;
+            color: var(--gunmetal);
+            transition: 0.2s;
         }
 
         #title {
@@ -95,6 +96,12 @@
             margin-left: 20px;
         }
 
+        #lil-nav {
+            max-width: max-content;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
     
 
     </style>
@@ -111,10 +118,9 @@
     <div id="main">
         <div id="center-content">
             <h1 id="title"><span style="color:#EE6C4D; font-weight: lighter;">go</span>local.</h1>
-            <form id="location-form">
-                <input type="text" id="location-entry">
-                <button id="search-button">&#9758;</button>
-            </form>
+            <nav id="lil-nav">
+                <a href="browse.html" id="location-form">Go! &#9654;</a>
+            </nav>
         </div>
     </div>
 </body>
