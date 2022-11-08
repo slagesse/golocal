@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({
 var index;
 var upload;
 var browse;
+var about;
 
 fs.readFile('index.html', function (err, html) {
     if (err) {
@@ -80,6 +81,15 @@ fs.readFile('browse.html', function (err, html) {
     }
 });
 
+fs.readFile('about.html', function (err, html) {
+    if (err) {
+        throw err; 
+    }
+    else {
+        about = html;
+    }
+});
+
 app.get("/", function(req, res) {
     res.setHeader('Content-Type', 'text/html');
     res.end(index);
@@ -98,6 +108,11 @@ app.get("/upload.html", function(req, res) {
 app.get("/browse.html", function(req, res) {
     res.setHeader('Content-Type', 'text/html');
     res.end(browse);
+});
+
+app.get("/about.html", function(req, res) {
+    res.setHeader('Content-Type', 'text/html');
+    res.end(about);
 });
 
 
